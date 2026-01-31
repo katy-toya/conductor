@@ -17,15 +17,9 @@
 / {
     combos {
         compatible = "zmk,combos";
-
         scroll {
             bindings = <&mo 5>;
             key-positions = <17 18>;
-        };
-
-        mb3 {
-            bindings = <&mkp MB3>;
-            key-positions = <19 18>;
         };
     };
 
@@ -34,14 +28,11 @@
             compatible = "zmk,behavior-mouse-key";
             label = "RIGHT_CLICK";
             #binding-cells = <0>;
-
-            // 右クリックは通常 MB2 に対応（ZMKの標準定義）
-
             bindings = <&mkp MB2>;
         };
     };
 
-keymap {
+    keymap {
         compatible = "zmk,keymap";
 
         default_layer {
@@ -161,3 +152,4 @@ keymap {
             >;
         };
     };
+};
