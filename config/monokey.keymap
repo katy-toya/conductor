@@ -43,7 +43,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans            &trans     &trans     &trans    &trans   &trans
 &trans  &trans  &trans  &trans  &trans            &kp MINUS  &kp EQUAL  &kp LBKT  &kp SQT  &kp SEMI
-&trans  &trans  &trans  &trans  &trans            &trans     &kp F1     &trans    &trans   &trans
+&trans  &trans  &trans  &trans  &trans            &trans     &kp N1     &trans    &trans   &trans
 &mo 7   &trans  &trans  &trans  &to 7   &trans    &trans     &kp DEL              &trans   &trans
             >;
         };
