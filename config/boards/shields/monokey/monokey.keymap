@@ -128,10 +128,10 @@
 
         FUNCTION {
             bindings = <
-&kp F1     &kp F2     &kp F3     &kp F4     &kp F5                    &kp F6   &kp F7   &kp F8   &kp F9   &kp F10
-&kp LC(F1) &kp LC(F2) &kp LC(F3) &trans     &trans     &trans    &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
-&trans     &trans     &trans     &trans     &trans     &trans    &trans   &trans   &trans   &kp F21  &kp F22  &trans
-&trans     &trans     &trans     &trans     &trans     &trans    &to 6    &kp DEL  &trans   &kp PSCRN &kp INS
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans
             >;
         };
 
