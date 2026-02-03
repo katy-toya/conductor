@@ -129,9 +129,9 @@
         FUNCTION {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans    &kp MINUS  &kp EQUAL  &kp LBKT  &kp SQT  &kp SEMI  &trans
+&trans  &trans  &trans  &trans  &trans     &trans    &trans     &kp F1     &trans    &trans   &kp F26   &trans
+&mo 7   &trans  &trans  &trans  &trans     &trans    &trans     &kp DEL    &trans    &trans
             >;
         };
 
