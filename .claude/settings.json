@@ -8,6 +8,7 @@
       "Bash(git status)",
       "Bash(git diff*)",
       "Bash(git log*)",
+      "Bash(git push*)",
       "Bash(cat config/*)",
       "Read",
       "Write",
