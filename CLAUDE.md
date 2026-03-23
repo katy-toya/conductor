@@ -17,6 +17,17 @@
 - ビルド設定: `build.yaml`（ボード・シールドの組み合わせを定義）
 - ビルド成果物はGitHub ActionsのArtifactsからダウンロード
 
+## ビルド結果確認
+**push 後は必ず WebFetch でビルド結果を確認すること。**
+
+```
+URL:    https://github.com/katy-toya/conductor/actions
+prompt: 最新のワークフロー実行結果（成功/失敗/実行中）とその名前・日時を教えてください
+```
+
+- 実行中の場合は少し待って再確認する
+- 失敗した場合はエラー内容を確認してユーザーに報告する
+
 ## レイヤー構成（現在）
 ```
 0: default_layer - BASE（通常入力）
