@@ -19,16 +19,9 @@
 
 ## ビルド結果確認
 **push 後は必ず WebFetch でビルド結果を確認すること。**
+詳細な確認手順・キャッシュ問題の対処法は `.claude/rules/build-check.md` を参照。
 
-```
-URL:    https://github.com/katy-toya/conductor/actions
-prompt: 最新のワークフロー実行結果（成功/失敗/実行中）とその名前・日時を教えてください
-```
-
-- フックが自動的に **2分30秒待機**してから確認を促す
-  - 根拠: 過去25回のビルド時間の中央値 = 113秒（外れ値3件を除外）
-- 実行中の場合はさらに待って再確認する
-- 失敗した場合はエラー内容を確認してユーザーに報告する
+確認 URL: `https://github.com/katy-toya/conductor/actions`
 
 ## レイヤー構成（現在）
 ```
@@ -54,6 +47,14 @@ prompt: 最新のワークフロー実行結果（成功/失敗/実行中）と�
 
 ## コンボ（現在）
 - `scroll`: key-positions = <17 18> → &mo 5
+- `mouse_layer`: key-positions = <16 36> → &to 4
+
+## コマンド・スキル一覧
+- `/flash` — diff確認してpush・ビルド発動（事前にコミット済みであること）
+- `/layer-gen [名前 用途]` — 未使用テンプレートを新レイヤーに書き換え
+- `/validate-keymap [レイヤー番号|all]` — キー数・コンボ競合・hold-tap設定を検証
+- `combo-helper`（自動発動）— コンボ候補の提案・競合チェック
+- `keymap-review`（自動発動）— キーマップ全体のレビュー
 
 ## 規約
 - コンボは key-positions でインデックス指定（0始まり、行×列順）

@@ -33,7 +33,9 @@
     ],
     "deny": [
       "Bash(rm -rf*)",
-      "Bash(git reset --hard*)"
+      "Bash(git reset --hard*)",
+      "Bash(git push --force*)",
+      "Bash(git branch -D*)"
     ]
   }
 }
