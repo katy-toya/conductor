@@ -25,6 +25,11 @@
             bindings = <&mo 5>;
             key-positions = <17 18>;
         };
+
+        mouse_layer {
+            bindings = <&to 4>;
+            key-positions = <16 36>;
+        };
     };
 
     keymap {
