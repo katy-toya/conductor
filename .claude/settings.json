@@ -10,8 +10,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if echo \"$cmd\" | grep -q 'git push'; then echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PostToolUse\", \"additionalContext\": \"git pushが完了しました。WebFetch で https://github.com/katy-toya/conductor/actions を確認し、最新のワークフロー実行結果（成功/失敗/実行中）をユーザーに報告してください。\"}}'; fi",
-            "statusMessage": "ビルド確認を促しています..."
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); if echo \"$cmd\" | grep -q 'git push'; then sleep 150; echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PostToolUse\", \"additionalContext\": \"git pushから約2分30秒経過しました。WebFetch で https://github.com/katy-toya/conductor/actions を確認し、最新のワークフロー実行結果（成功/失敗/実行中）をユーザーに報告してください。\"}}'; fi",
+            "timeout": 200,
+            "statusMessage": "ビルド完了を待っています（約2分30秒）..."
           }
         ]
       }
