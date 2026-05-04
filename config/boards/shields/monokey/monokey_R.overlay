@@ -1,5 +1,7 @@
 #include "monokey.dtsi"
 #include <input/processors.dtsi>
+#include <dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
     col-offset = <6>;
@@ -17,7 +19,10 @@
             ;
 };
 
-
+/* NFC pins as GPIO (replaces CONFIG_NFCT_PINS_AS_GPIOS=y) */
+&uicr {
+    nfct-pins-as-gpios;
+};
 
 // 非マウスキーでAML解除
 &zip_temp_layer {
@@ -25,8 +30,8 @@
         17 // K
         18 // L
     >;
-    require-prior-idle-ms = <200>;
-    // トラボ誤爆防止
+    require-prior-idle-ms = <300>;
+    // トラボ誤爆防止: タイピング後300ms経過しないとAMLが発動しない
 };
 
 
@@ -34,8 +39,19 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 100000>; // AML
 
+        /* ベース: オートマウスレイヤー (AML)
+         * トラックボール操作時にレイヤー4 (MOUSE) を自動有効化
+         * 5000ms (5秒) のタイムアウトで自動解除 */
+        input-processors = <&zip_temp_layer 4 5000>;
+
+        /* スクロールレイヤー: レイヤー5 (SCROLL) がアクティブ時
+         * XY移動をスクロールホイールに変換
+         * スクロール速度をスケーリング (1/8) で調整 */
+        scroll_layer {
+            layers = <5>;
+            input-processors = <&zip_xy_to_scroll_mapper &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT &zip_scroll_scaler 1 16 &zip_scroll_scaler 1 2 &studio_scroll_scaler>;
+        };
     };
 
     chg_stat: chg_stat {
@@ -75,10 +91,13 @@
 
     trackball: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610";
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <5>;
+        cpi = <800>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };

@@ -1,5 +1,10 @@
 #include "monokey.dtsi"
 
+/* NFC pins as GPIO (replaces CONFIG_NFCT_PINS_AS_GPIOS=y) */
+&uicr {
+    nfct-pins-as-gpios;
+};
+
 &kscan0 {
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
